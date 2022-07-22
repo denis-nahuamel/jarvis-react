@@ -1,3 +1,5 @@
 export const getEmployees = () => {
-    return fetch("https://randomuser.me/api/").then(response => {return response.json()})
+    return fetch("https://randomuser.me/api/").then(response => {
+        return response
+    })
 }
