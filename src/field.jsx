@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { image, containerCenterCenter } from "./styles/table-style";
 const Field = ({ data }) => {
+    console.log("data", data)
     return (
         data.map((employee, index) => (
             <tr key={index} >
