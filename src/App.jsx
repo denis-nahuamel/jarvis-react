@@ -56,7 +56,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {dataTable || dataTable.lenght < 14 ? "Loading" : <Field data={dataTable} />}
+          {dataTable ?<Field data={dataTable} />: "Loading" }
         </tbody>
       </table>
     </div>

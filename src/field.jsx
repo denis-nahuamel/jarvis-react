@@ -4,32 +4,34 @@ import { image, containerCenterCenter } from "./styles/table-style";
 const Field = ({ data }) => {
     console.log("data", data)
     return (
+        
         data.map((employee, index) => (
             <tr key={index} >
-                <td>{employee.name.first}</td>
-                <td>{employee.name.last}</td>
+                <td>{employee[0].name.first}</td>
+                <td>{employee[0].name.last}</td>
                 <td>
                     <div css={containerCenterCenter}>
-                        {employee.dob.age}
+                        {employee[0].dob.age}
                     </div>
                 </td>
                 <td>
                     <div css={containerCenterCenter}>
-                        {employee.gender}
+                        {employee[0].gender}
                     </div>
                 </td>
-                <td>{employee.email}</td>
+                <td>{employee[0].email}</td>
                 <td>
                     <div css={containerCenterCenter}>
-                        {employee.nat}
+                        {employee[0].nat}
                     </div>
                 </td>
                 <td>
                     <div css={containerCenterCenter}>
-                        <img css={image} src={employee.picture.thumbnail} />
+                        <img css={image} src={employee[0].picture.thumbnail} />
                     </div>
                 </td>
             </tr>
-        )))
+        ))
+    )
 }
 export default Field;
