@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { image, containerCenterCenter } from "./styles/table-style";
 const Field = ({ data }) => {
     return (
+        
         data.map((employee, index) => (
             <tr key={index} >
                 <td>{employee.name.first}</td>
@@ -29,6 +30,7 @@ const Field = ({ data }) => {
                     </div>
                 </td>
             </tr>
-        )))
+        ))
+    )
 }
 export default Field;

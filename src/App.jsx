@@ -2,24 +2,26 @@
 import { css } from "@emotion/react"
 import logo from './logo.svg';
 import './App.css';
-import { getEmployees } from './services/employees-service';
+import {  getEmployee } from './services/employees-service';
 import { useEffect, useState } from 'react';
-import { field, head, table } from './styles/table-style';
+import { button, container, containerButton, field, head, table } from './styles/table-style';
 import Field from "./field";
-
+import CsvDownload from 'react-json-to-csv'
 function App() {
-  const [dataTable, setDataTable] = useState();
-  useEffect(()=> {
-    getEmployees().then(response => setDataTable(
-      response.results.sort((a,b)=> {
-      if(a.dob.age>b.dob.age) return 1 ;
-      if(a.dob.age<b.dob.age) return -1 ;
-      return 0;
-    })))
-  },[])
+  const [dataTable, setDataTable] = useState([]);
+  const [data, setData] = useState();
+  useEffect(() => {
+      getEmployee().then(response => {
+        setData(response.results);
+        setDataTable(response.results)
+      })
+  }, [])
 
   return (
-    <div className="App">
+    <div css={container}>
+      <div css={containerButton}>
+        <CsvDownload data={data} css={button} filename="data.csv">Download</CsvDownload>
+      </div>
       <table >
         <thead >
           <tr >
@@ -33,7 +35,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {dataTable?<Field data={dataTable} />:"Loading"}
+          {dataTable ?<Field data={dataTable} />: "Loading" }
         </tbody>
       </table>
     </div>
