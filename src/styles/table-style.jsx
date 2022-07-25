@@ -8,8 +8,7 @@ export const containerCenterCenter = css`
 export const container = css`
     ${containerCenterCenter};
     flex-direction: column;
-    width: 800px;
-    height: 100%;
+    margin:15px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     padding: 20px;
@@ -26,8 +25,9 @@ export const containerButton = css `
 `
 export const button = css `
     background: #548fc2;
-    height: 30px;
-    border-radius: 15px;
     border: none;
     color: white;
+    border-radius: 12px;
+    height: 40px;
+    cursor: pointer;
 `

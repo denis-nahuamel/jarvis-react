@@ -20,7 +20,7 @@ function App() {
   return (
     <div css={container}>
       <div css={containerButton}>
-        <CsvDownload data={data} filename="good_data.csv">download</CsvDownload>
+        <CsvDownload data={data} css={button} filename="data.csv">Download</CsvDownload>
       </div>
       <table >
         <thead >
